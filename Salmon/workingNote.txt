@@ -1,0 +1,63 @@
+##=========================================================
+##	Requirement
+##	Salmon installation
+##	Creditable transcript reference
+##	i.e. https://www.gencodegenes.org/human/
+##=========================================================
+
+
+##=========================================================
+##      Main script set up
+##=========================================================
+
+
+
+
+##============================================================
+##	Output folder:
+##
+##	After Salmon run, there will be a separate folder
+##	exampleSample.salmon it contains all the output files
+##	
+##	ls -l ~/project2019/RNAseqProj/results/Salmon/TR_AG_1_CRRA190004040-1a_HMHVVDSXX_L1.salmon/  
+##============================================================
+
+
+total 6755
+drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 aux_info
+-rw-r--r-- 1 li11 dirib     331 Nov 15  2019 cmd_info.json
+-rw-r--r-- 1 li11 dirib     518 Nov 15  2019 lib_format_counts.json
+drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 libParams
+drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 logs
+-rw-r--r-- 1 li11 dirib 6900271 Nov 15  2019 quant.sf
+
+
+
+
+
+##============================================================================
+awk -F"\t" '{if ($5 > 0 ) print }'  TR_AG_1_CRRA190004040-1a_HMHVVDSXX_L1.salmon/quant.sf | wc -l 
+
+#	30018
+wc -l TR_AG_1_CRRA190004040-1a_HMHVVDSXX_L1.salmon/quant.sf 
+#	140749 TR_AG_1_CRRA190004040-1a_HMHVVDSXX_L1.salmon/quant.sf
+
+for k in `ls -d TR_*`; do wc -l $k/quant.sf ; cat $k/quant.sf |  awk -F"\t" '{if ($5 > 0 ) print }' | wc -l;   done;
+
+for k in `ls -d TR_*`; do echo $k/quant.sf ; tail -n +2 $k/quant.sf | cut -f1,5 > "matrix_$k.csv"; done; 
+
+paste matrix_TR_* > mouse_Salmon_matrix.txt 
+
+##=====================================================================
+##     Modify the matrix in other software
+##     Excel, JMP to exclude missing value, duplicate entries etc.
+##=====================================================================
+
+
+total 6755
+drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 aux_info
+-rw-r--r-- 1 li11 dirib     331 Nov 15  2019 cmd_info.json
+-rw-r--r-- 1 li11 dirib     518 Nov 15  2019 lib_format_counts.json
+drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 libParams
+drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 logs
+-rw-r--r-- 1 li11 dirib 6900271 Nov 15  2019 quant.sf
