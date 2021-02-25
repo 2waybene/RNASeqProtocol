@@ -77,6 +77,16 @@ o	also transcript coverage output is optional and makes Salmon slow
 
 
 
+I usually use "Gencode Comprehensive" GTF, and they provide a corresponding FASTA file which makes it convenient.
+
+For example in human: https://www.gencodegenes.org/human/
+
+The only issue is that for hg19 (GRCh37) you have to use "lift37" which they create on hg38 then lift back to hg19:
+https://www.gencodegenes.org/human/release_37lift37.html
+
+
+
+
 # RNASeqProtocol
 Kallisto
 Salmon

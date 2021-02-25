@@ -5,15 +5,120 @@
 ##	i.e. https://www.gencodegenes.org/human/
 ##=========================================================
 
+##=========================================
+##	salmon installationi
+##	It was installed Nov. 2019
+##=========================================
+
+which salmon
+~/local/bin/salmon
+
+ls -al ~/local/bin/salmon 
+lrwxrwxrwx 1 li11 dirib 69 Nov 14  2019 /ddn/gs1/home/li11/local/bin/salmon -> /ddn/gs1/home/li11/tools/salmon/salmon-latest_linux_x86_64/bin/salmon
+
+##=========================================
+##	The reference transcriptome 
+##	And, building salmon index
+##=========================================
+
+##	Download files from https://www.gencodegenes.org/human
+##	Download files from https://www.gencodegenes.org/mouse
+##	e.g.
+##	ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M26/gencode.vM26.transcripts.fa.gz 
+##	All files needed for salmon are:
+
+[li11@ehshpclp134/latimer salmonIndex]$ ls -l 
+total 4255394
+-rw-r--r-- 1 li11 dirib          6 Nov 16  2019 decoys.txt
+-rw-rw-r-- 1 li11 dirib  899455125 Nov 14  2019 gencode.vM23.annotation.gff3
+-rw-rw-r-- 1 li11 dirib  263212071 Nov 14  2019 gencode.vM23.transcripts.fa
+-rw-r--r-- 1 li11 dirib  393335633 Nov 16  2019 gentrome.fa
+-rw-rw-r-- 1 li11 dirib 2801442277 Nov 14  2019 GRCm38.p6.genome.fa
+drwxr-xr-x 2 li11 dirib       4096 Nov 15  2019 mm10_salmon_index
+
+[li11@ehshpclp134/latimer salmonIndex]$ ls -l 
+total 5480098
+-rw-r--r-- 1 li11 dirib          6 Nov 17  2019 decoys.txt
+-rw-rw-r-- 1 li11 dirib 1340700497 Nov 14  2019 gencode.v32.annotation.gff3
+-rw-rw-r-- 1 li11 dirib  389993289 Nov 14  2019 gencode.v32.transcripts.fa
+-rw-r--r-- 1 li11 dirib  559301704 Nov 17  2019 gentrome.fa
+-rw-rw-r-- 1 li11 dirib 3321586957 Nov 14  2019 GRCh38.p13.genome.fa
+drwxr-xr-x 2 li11 dirib       4096 Nov 14  2019 hg38_salmon_index
+
+##========================================================================================================
+##	Build human and mouse salmon index
+##
+##	salmon index --index hg38_salmon_index  -t  gencode.v32.transcripts.fa    --gencode  -p 40 &
+##      salmon index --index mm10_salmon_index  -t  gencode.vM23.transcripts.fa   --gencode  -p 40 & 
+##========================================================================================================
+
+
+mm10_salmon_index=/ddn/gs1/home/li11/refDB/mm10/salmonIndex/mm10_salmon_index
+hg38_salmon_index=/ddn/gs1/home/li11/refDB/hg38/salmonIndex/hg38_salmon_index
+
+
+[li11@ehshpclp134/latimer salmonIndex]$ ls -l hg38_salmon_index/
+total 837602
+-rw-r--r-- 1 li11 dirib    906440 Nov 14  2019 complete_ref_lens.bin
+-rw-r--r-- 1 li11 dirib  70333976 Nov 14  2019 ctable.bin
+-rw-r--r-- 1 li11 dirib   4093096 Nov 14  2019 ctg_offsets.bin
+-rw-r--r-- 1 li11 dirib     31758 Nov 14  2019 duplicate_clusters.tsv
+-rw-r--r-- 1 li11 dirib  39522796 Nov 14  2019 eqtable.bin
+-rw-r--r-- 1 li11 dirib       979 Nov 14  2019 info.json
+-rw-r--r-- 1 li11 dirib  91771012 Nov 14  2019 mphf.bin
+-rw-r--r-- 1 li11 dirib 490403368 Nov 14  2019 pos.bin
+-rw-r--r-- 1 li11 dirib       115 Nov 14  2019 pre_indexing.log
+-rw-r--r-- 1 li11 dirib  22853208 Nov 14  2019 rank.bin
+-rw-r--r-- 1 li11 dirib   1812560 Nov 14  2019 refAccumLengths.bin
+-rw-r--r-- 1 li11 dirib     19793 Nov 14  2019 ref_indexing.log
+-rw-r--r-- 1 li11 dirib    906440 Nov 14  2019 reflengths.bin
+-rw-r--r-- 1 li11 dirib  89179256 Nov 14  2019 refseq.bin
+-rw-r--r-- 1 li11 dirib  45706384 Nov 14  2019 seq.bin
+-rw-r--r-- 1 li11 dirib        96 Nov 14  2019 versionInfo.json
+
+
+[li11@ehshpclp134/latimer salmonIndex]$ ls -l mm10_salmon_index/
+total 662338
+-rw-r--r-- 1 li11 dirib    563000 Nov 15  2019 complete_ref_lens.bin
+-rw-r--r-- 1 li11 dirib  37516854 Nov 15  2019 ctable.bin
+-rw-r--r-- 1 li11 dirib   2321728 Nov 15  2019 ctg_offsets.bin
+-rw-r--r-- 1 li11 dirib     67367 Nov 15  2019 duplicate_clusters.tsv
+-rw-r--r-- 1 li11 dirib  19822492 Nov 15  2019 eqtable.bin
+-rw-r--r-- 1 li11 dirib       978 Nov 15  2019 info.json
+-rw-r--r-- 1 li11 dirib  78996412 Nov 15  2019 mphf.bin
+-rw-r--r-- 1 li11 dirib 422137952 Nov 15  2019 pos.bin
+-rw-r--r-- 1 li11 dirib       115 Nov 15  2019 pre_indexing.log
+-rw-r--r-- 1 li11 dirib  18242328 Nov 15  2019 rank.bin
+-rw-r--r-- 1 li11 dirib   1125680 Nov 15  2019 refAccumLengths.bin
+-rw-r--r-- 1 li11 dirib     19400 Nov 15  2019 ref_indexing.log
+-rw-r--r-- 1 li11 dirib    563000 Nov 15  2019 reflengths.bin
+-rw-r--r-- 1 li11 dirib  60186800 Nov 15  2019 refseq.bin
+-rw-r--r-- 1 li11 dirib  36484624 Nov 15  2019 seq.bin
+-rw-r--r-- 1 li11 dirib        96 Nov 15  2019 versionInfo.json
+
+##=============================================================================================================================================================================================
+##	Then, test run decoy
+##	bash ~/tools/salmon/salmon-latest_linux_x86_64/scripts/generateDecoyTranscriptome.sh -a gencode.vM23.annotation.gff3 -g GRCm38.p6.genome.fa -t gencode.vM23.transcripts.fa -o . &
+##	bash ~/tools/salmon/salmon-latest_linux_x86_64/scripts/generateDecoyTranscriptome.sh -a gencode.v32.annotation.gff3 -g GRCh38.p13.genome.fa -t gencode.v32.transcripts.fa  -o . &
+##===========================================================================================================================================================================================
+
+
 
 ##=========================================================
-##      Main script set up
+##     	Build salmon run with the following 
+##	scripts:
 ##=========================================================
+
+-rw-r--r-- 1 li11 dirib 1224 Feb 25 08:36 buildingSalmonscripts_hg38.sh
+-rw-r--r-- 1 li11 dirib 1145 Feb 25 08:34 buildingSalmonscripts_mm10.sh
+-rw-r--r-- 1 li11 dirib 2392 Feb 25 08:34 createdSalmon.sh
 
 
 
 
 ##============================================================
+##	After successfully run, here are the
+##
 ##	Output folder:
 ##
 ##	After Salmon run, there will be a separate folder
@@ -33,6 +138,11 @@ drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 logs
 
 
 
+
+##============================================================
+##      Create count datamatrix for downstream 
+##	Analysis
+##============================================================
 
 
 ##============================================================================
@@ -61,3 +171,14 @@ drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 aux_info
 drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 libParams
 drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 logs
 -rw-r--r-- 1 li11 dirib 6900271 Nov 15  2019 quant.sf
+##	create index
+
+#	salmon index --index mm10_salmon_index  -t  gencode.vM23.transcripts.fa   --gencode  -p 40 & 
+
+
+##	test run decoy
+bash ~/tools/salmon/salmon-latest_linux_x86_64/scripts/generateDecoyTranscriptome.sh -a gencode.vM23.annotation.gff3 -g GRCm38.p6.genome.fa -t gencode.vM23.transcripts.fa -o . &
+
+
+
+
