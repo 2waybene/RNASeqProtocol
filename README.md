@@ -1,4 +1,29 @@
-# RNASeqProtocol
+##===============================
+##	 RNASeqProtocol
+##===============================
+
+#	Over the time, the methodoly becomes quite matured. Now, three main players are dominating the RNAseq quantification
+#	followed by DESeq2 as the statistical moding.
+#	In my effort, I have a FiveSeq strategies that ultimately provides a intersect of "significant gene" from an RAN-seq
+#	Experiment.
+#
+#	Under this folder, I am going to focus on three quantification methods
+#	kallisto, salmon, and STAR-feature count
+#
+#	I will have my favorite FiveSeq for extracting the significant gene list
+##===========================================================================================================================
+
+
+##======================================================================================================
+##	I will illustrate this protocol with human NRF2 data as well as its counterpart in mouse study
+##	Hopefully, with the combinatorial approcah, we can get the best and confident results
+##======================================================================================================
+
+
+##======================================================================================================
+##      With our approach, we will bench-mark a successful RNAseq experiment, and compare the results 
+##	we get to what has been published
+##======================================================================================================
 
 There are commonly accepted methods, that will be illustrated in the corresponding sub-directories:
 
