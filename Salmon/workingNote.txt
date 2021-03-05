@@ -1,12 +1,14 @@
 ##=========================================================
-##	Requirement
-##	Salmon installation
+##	Standard protocol for Salmon analysis 
+##
 ##	Creditable transcript reference
 ##	i.e. https://www.gencodegenes.org/human/
 ##=========================================================
 
+
 ##=========================================
-##	salmon installationi
+##	Step 1: salmon installation
+##
 ##	It was installed Nov. 2019
 ##=========================================
 
@@ -16,10 +18,11 @@ which salmon
 ls -al ~/local/bin/salmon 
 lrwxrwxrwx 1 li11 dirib 69 Nov 14  2019 /ddn/gs1/home/li11/local/bin/salmon -> /ddn/gs1/home/li11/tools/salmon/salmon-latest_linux_x86_64/bin/salmon
 
-##=========================================
-##	The reference transcriptome 
-##	And, building salmon index
-##=========================================
+##=================================================
+##	Step 2: get the referencd transcriptome
+##	
+##	And, building salmon index proporly
+##=================================================
 
 ##	Download files from https://www.gencodegenes.org/human
 ##	Download files from https://www.gencodegenes.org/mouse
@@ -27,6 +30,10 @@ lrwxrwxrwx 1 li11 dirib 69 Nov 14  2019 /ddn/gs1/home/li11/local/bin/salmon -> /
 ##	ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M26/gencode.vM26.transcripts.fa.gz 
 ##	All files needed for salmon are:
 
+
+##=================================================================================
+##	As an exmple, the following are the reference database need for salmon
+##=================================================================================
 [li11@ehshpclp134/latimer salmonIndex]$ ls -l 
 total 4255394
 -rw-r--r-- 1 li11 dirib          6 Nov 16  2019 decoys.txt
@@ -113,6 +120,37 @@ total 662338
 -rw-r--r-- 1 li11 dirib 1145 Feb 25 08:34 buildingSalmonscripts_mm10.sh
 -rw-r--r-- 1 li11 dirib 2392 Feb 25 08:34 createdSalmon.sh
 
+
+
+##===========================================================
+##      For any given RNAseq experiment
+##      It is recommended to have the following directories
+##===========================================================
+
+[li11@ehshpclp134/latimer RNAProj]$ ls -l 
+total 2
+drwxr-xr-x 2 li11 dirib 4096 Mar  4 20:40 executeScripts
+drwxr-xr-x 3 li11 dirib 4096 Feb 25 10:13 rawData
+drwxr-xr-x 3 li11 dirib 4096 Feb 25 21:38 results
+drwxr-xr-x 2 li11 dirib 4096 Feb 25 21:45 runningScripts
+
+##==============================================================================
+rawData: contains all the fastq files
+runningScripts: contains script to make executing scripts
+executeSripts: contains "salmon script" for a given sample in the experiment
+results: contains salmon run for each sample: results/Salmon/
+##==============================================================================
+[li11@ehshpclp134/latimer RNAProj]$ ls -l results/Salmon/
+total 5
+drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 E59A_1.salmon
+drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 E59A_2.salmon
+drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 E59A_3.salmon
+drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:57 E59B_1.salmon
+drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 E59B_2.salmon
+drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:55 E59B_3.salmon
+drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:55 NKO70_1.salmon
+drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 NKO70_2.salmon
+drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 NKO70_3.salmon
 
 
 
