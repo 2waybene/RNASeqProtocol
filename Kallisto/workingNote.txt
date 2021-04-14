@@ -38,28 +38,6 @@ drwxr-xr-x  2 li11 dirib     4096 Mar  2 16:16 test
 ##	ftp://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M26/gencode.vM26.transcripts.fa.gz 
 ##	All files needed for salmon are:
 
-
-##=================================================================================
-##	As an exmple, the following are the reference database need for salmon
-##=================================================================================
-[li11@ehshpclp134/latimer salmonIndex]$ ls -l 
-total 4255394
--rw-r--r-- 1 li11 dirib          6 Nov 16  2019 decoys.txt
--rw-rw-r-- 1 li11 dirib  899455125 Nov 14  2019 gencode.vM23.annotation.gff3
--rw-rw-r-- 1 li11 dirib  263212071 Nov 14  2019 gencode.vM23.transcripts.fa
--rw-r--r-- 1 li11 dirib  393335633 Nov 16  2019 gentrome.fa
--rw-rw-r-- 1 li11 dirib 2801442277 Nov 14  2019 GRCm38.p6.genome.fa
-drwxr-xr-x 2 li11 dirib       4096 Nov 15  2019 mm10_salmon_index
-
-[li11@ehshpclp134/latimer salmonIndex]$ ls -l 
-total 5480098
--rw-r--r-- 1 li11 dirib          6 Nov 17  2019 decoys.txt
--rw-rw-r-- 1 li11 dirib 1340700497 Nov 14  2019 gencode.v32.annotation.gff3
--rw-rw-r-- 1 li11 dirib  389993289 Nov 14  2019 gencode.v32.transcripts.fa
--rw-r--r-- 1 li11 dirib  559301704 Nov 17  2019 gentrome.fa
--rw-rw-r-- 1 li11 dirib 3321586957 Nov 14  2019 GRCh38.p13.genome.fa
-drwxr-xr-x 2 li11 dirib       4096 Nov 14  2019 hg38_salmon_index
-
 ##========================================================================================================
 ##	Build human and mouse kallisto index
 ##
@@ -67,66 +45,23 @@ drwxr-xr-x 2 li11 dirib       4096 Nov 14  2019 hg38_salmon_index
 ##	kallisto index -i kallistoHG38 gencode.v32.transcripts.fa
 ##========================================================================================================
 
-
-mm10_salmon_index=/ddn/gs1/home/li11/refDB/mm10/salmonIndex/mm10_salmon_index
-hg38_salmon_index=/ddn/gs1/home/li11/refDB/hg38/salmonIndex/hg38_salmon_index
+##	For example
 
 
-[li11@ehshpclp134/latimer salmonIndex]$ ls -l hg38_salmon_index/
-total 837602
--rw-r--r-- 1 li11 dirib    906440 Nov 14  2019 complete_ref_lens.bin
--rw-r--r-- 1 li11 dirib  70333976 Nov 14  2019 ctable.bin
--rw-r--r-- 1 li11 dirib   4093096 Nov 14  2019 ctg_offsets.bin
--rw-r--r-- 1 li11 dirib     31758 Nov 14  2019 duplicate_clusters.tsv
--rw-r--r-- 1 li11 dirib  39522796 Nov 14  2019 eqtable.bin
--rw-r--r-- 1 li11 dirib       979 Nov 14  2019 info.json
--rw-r--r-- 1 li11 dirib  91771012 Nov 14  2019 mphf.bin
--rw-r--r-- 1 li11 dirib 490403368 Nov 14  2019 pos.bin
--rw-r--r-- 1 li11 dirib       115 Nov 14  2019 pre_indexing.log
--rw-r--r-- 1 li11 dirib  22853208 Nov 14  2019 rank.bin
--rw-r--r-- 1 li11 dirib   1812560 Nov 14  2019 refAccumLengths.bin
--rw-r--r-- 1 li11 dirib     19793 Nov 14  2019 ref_indexing.log
--rw-r--r-- 1 li11 dirib    906440 Nov 14  2019 reflengths.bin
--rw-r--r-- 1 li11 dirib  89179256 Nov 14  2019 refseq.bin
--rw-r--r-- 1 li11 dirib  45706384 Nov 14  2019 seq.bin
--rw-r--r-- 1 li11 dirib        96 Nov 14  2019 versionInfo.json
+mm10_kallisto_index=/ddn/gs1/home/li11/refDB/mm10/kallistoIndex/kallistoMM10
+hg38_kallisto_index=/ddn/gs1/home/li11/refDB/hg38/kallistoIndex/kallistoHG38
 
-
-[li11@ehshpclp134/latimer salmonIndex]$ ls -l mm10_salmon_index/
-total 662338
--rw-r--r-- 1 li11 dirib    563000 Nov 15  2019 complete_ref_lens.bin
--rw-r--r-- 1 li11 dirib  37516854 Nov 15  2019 ctable.bin
--rw-r--r-- 1 li11 dirib   2321728 Nov 15  2019 ctg_offsets.bin
--rw-r--r-- 1 li11 dirib     67367 Nov 15  2019 duplicate_clusters.tsv
--rw-r--r-- 1 li11 dirib  19822492 Nov 15  2019 eqtable.bin
--rw-r--r-- 1 li11 dirib       978 Nov 15  2019 info.json
--rw-r--r-- 1 li11 dirib  78996412 Nov 15  2019 mphf.bin
--rw-r--r-- 1 li11 dirib 422137952 Nov 15  2019 pos.bin
--rw-r--r-- 1 li11 dirib       115 Nov 15  2019 pre_indexing.log
--rw-r--r-- 1 li11 dirib  18242328 Nov 15  2019 rank.bin
--rw-r--r-- 1 li11 dirib   1125680 Nov 15  2019 refAccumLengths.bin
--rw-r--r-- 1 li11 dirib     19400 Nov 15  2019 ref_indexing.log
--rw-r--r-- 1 li11 dirib    563000 Nov 15  2019 reflengths.bin
--rw-r--r-- 1 li11 dirib  60186800 Nov 15  2019 refseq.bin
--rw-r--r-- 1 li11 dirib  36484624 Nov 15  2019 seq.bin
--rw-r--r-- 1 li11 dirib        96 Nov 15  2019 versionInfo.json
-
-##=============================================================================================================================================================================================
-##	Then, test run decoy
-##	bash ~/tools/salmon/salmon-latest_linux_x86_64/scripts/generateDecoyTranscriptome.sh -a gencode.vM23.annotation.gff3 -g GRCm38.p6.genome.fa -t gencode.vM23.transcripts.fa -o . &
-##	bash ~/tools/salmon/salmon-latest_linux_x86_64/scripts/generateDecoyTranscriptome.sh -a gencode.v32.annotation.gff3 -g GRCh38.p13.genome.fa -t gencode.v32.transcripts.fa  -o . &
-##===========================================================================================================================================================================================
 
 
 
 ##=========================================================
-##     	Build salmon run with the following 
+##     	Build kallisto run with the following 
 ##	scripts:
 ##=========================================================
 
--rw-r--r-- 1 li11 dirib 1224 Feb 25 08:36 buildingSalmonscripts_hg38.sh
--rw-r--r-- 1 li11 dirib 1145 Feb 25 08:34 buildingSalmonscripts_mm10.sh
--rw-r--r-- 1 li11 dirib 2392 Feb 25 08:34 createdSalmon.sh
+-rw-r--r-- 1 li11 dirib 1224 Feb 25 08:36 buildingKallistoScripts_hg38.sh
+-rw-r--r-- 1 li11 dirib 1145 Feb 25 08:34 buildingKallistoScripts_mm10.sh
+-rw-r--r-- 1 li11 dirib 2392 Feb 25 08:34 createdKallisto.sh
 
 
 
@@ -148,19 +83,6 @@ runningScripts: contains script to make executing scripts
 executeSripts: contains "salmon script" for a given sample in the experiment
 results: contains salmon run for each sample: results/Salmon/
 ##==============================================================================
-[li11@ehshpclp134/latimer RNAProj]$ ls -l results/Salmon/
-total 5
-drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 E59A_1.salmon
-drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 E59A_2.salmon
-drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 E59A_3.salmon
-drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:57 E59B_1.salmon
-drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 E59B_2.salmon
-drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:55 E59B_3.salmon
-drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:55 NKO70_1.salmon
-drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 NKO70_2.salmon
-drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 NKO70_3.salmon
-
-
 
 ##============================================================
 ##	After successfully run, here are the
@@ -172,15 +94,6 @@ drwxr-xr-x 5 li11 dirib 4096 Feb 25 21:56 NKO70_3.salmon
 ##	
 ##	ls -l ~/project2019/RNAseqProj/results/Salmon/TR_AG_1_CRRA190004040-1a_HMHVVDSXX_L1.salmon/  
 ##============================================================
-
-
-total 6755
-drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 aux_info
--rw-r--r-- 1 li11 dirib     331 Nov 15  2019 cmd_info.json
--rw-r--r-- 1 li11 dirib     518 Nov 15  2019 lib_format_counts.json
-drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 libParams
-drwxr-xr-x 2 li11 dirib    4096 Nov 15  2019 logs
--rw-r--r-- 1 li11 dirib 6900271 Nov 15  2019 quant.sf
 
 
 

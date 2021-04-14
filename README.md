@@ -2,6 +2,8 @@
 ##	 RNASeqProtocol
 ##===============================
 
+
+##===========================================================================================================================
 #	Over the time, the methodoly becomes quite matured. Now, three main players are dominating the RNAseq quantification
 #	followed by DESeq2 as the statistical moding.
 #	In my effort, I have a FiveSeq strategies that ultimately provides a intersect of "significant gene" from an RAN-seq
@@ -12,6 +14,20 @@
 #
 #	I will have my favorite FiveSeq for extracting the significant gene list
 ##===========================================================================================================================
+
+
+##===================================================================================================================
+##      Adapter trimming
+##      https://dnatech.genomecenter.ucdavis.edu/faqs/when-should-i-trim-my-illumina-reads-and-how-should-i-do-it/
+##===================================================================================================================
+
+
+It depepends on the objective of the experiments, since this is for RNAseq primarily for counting applications like 
+differential gene expression (DGE) RNA-seq analysis, ChIP-seq, ATAC-seq, read trimming is generally not required  when 
+using “local aligners” like STAR, BWA-MEM, HISAT2, they will “soft-clip” non-matching sequences. Pseudo-aligners like 
+Kallisto or Salmon will also not have any problem with reads containing adapter sequences.
+
+I will discuss adapter trimming with other projects like variant analyses, genome annotation or genome or transcriptome assembly
 
 
 ##======================================================================================================
